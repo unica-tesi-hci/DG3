@@ -42,14 +42,14 @@
             <Canvas HorizontalAlignment="Left" Width="400" Height="400" Background="Transparent"  Margin="-2" VerticalAlignment="Top"  Name="paintSurface" MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" MouseWheel="paintSurface_MouseWheel" />
         </Border>
         <TextBox Name="title_text_box" HorizontalAlignment="Left" Height="20" Margin="107,275,0,0" TextWrapping="Wrap" Text="Gesture_A" VerticalAlignment="Top" Width="391" RenderTransformOrigin="-0.302,10.316" Grid.Row="1"/>
-        <TextBox Name="rule_text_box" HorizontalAlignment="Left" Height="110" Margin="107,313,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="391" Grid.Row="1"/>
+        <TextBox Name="expression_text_box" HorizontalAlignment="Left" Height="110" Margin="107,313,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="391" Grid.Row="1"/>
 
         <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="36" Margin="814,475,0,0" VerticalAlignment="Top" Width="36" Click="Button_Click" Grid.Row="1">
             <Image Source="img/baseline_double_arrow_black_18dp.png" RenderTransformOrigin="1.971,0.559" />
         </Button>
 
         <Label Content="Name:" HorizontalAlignment="Left" Height="24" Margin="34,271,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1"/>
-        <Label Content="Rule:" HorizontalAlignment="Left" Height="24" Margin="34,313,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1" RenderTransformOrigin="-0.221,0.583"/>
+        <Label Content="Expression:" HorizontalAlignment="Left" Height="24" Margin="34,313,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1" RenderTransformOrigin="-0.221,0.583"/>
         <GroupBox Header="Tools" HorizontalAlignment="Left" Height="402" Margin="34,38,0,0" VerticalAlignment="Top" Width="58" Grid.RowSpan="2">
             <StackPanel>
                 <Border x:Name="borderACW" BorderThickness="0" BorderBrush="DarkGreen" Width="35" Height="35">
@@ -100,8 +100,8 @@
                     <TextBox   x:Name="DatasetNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="182" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
-                    <Label Content="Rules:" HorizontalAlignment="Left" Height="32"  VerticalAlignment="Top" Width="46"  Margin="0,5,0,0"/>
-                    <ListView HorizontalContentAlignment="Center"  x:Name="Rule_ListView" HorizontalAlignment="Left" Height="278"  VerticalAlignment="Top" Width="182" SelectionChanged="Rule_ListView_SelectionChanged"/>
+                    <Label Content="Set:" HorizontalAlignment="Left" Height="32"  VerticalAlignment="Top" Width="46"  Margin="0,5,0,0"/>
+                    <ListView HorizontalContentAlignment="Center"  x:Name="ExpressionListView" HorizontalAlignment="Left" Height="278"  VerticalAlignment="Top" Width="182" SelectionChanged="ExpressionListView_SelectionChanged"/>
                 </StackPanel>
 
             </StackPanel>

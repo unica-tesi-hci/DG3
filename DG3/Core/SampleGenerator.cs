@@ -19,20 +19,20 @@ namespace GestureStudio
 		public static string ConnectivityErrorMessage = "Sample Generation failed, please ensure that there's an active internet connection and that G3's web service is up.";
 		public static string MinExpressionsErrorMessage = "Please add at least one expression to the collection before starting the generation process.";
 
-		public static async Task GeneratePoints(string datasetName, List<Expression> rules)
+		public static async Task GeneratePoints(string datasetName, List<Expression> expressions)
 		{
 			List<Task> tasks = new List<Task>();
 			double m_factor = 20; //scaling factor
 			int ms = 5; //200 Hz
 			double speed = 0.1; //0.1 expression space units for every 5 ms
-			for (int z = 0; z < rules.Count; z++)
+			for (int z = 0; z < expressions.Count; z++)
 			{
 				string code;
 				string title;
 				string[] code_strokes;
 
-				code = rules[z].expression;
-				title = rules[z].title;
+				code = expressions[z].expression;
+				title = expressions[z].title;
 
 				if (code == "")
 					break;
@@ -448,6 +448,7 @@ namespace GestureStudio
 		public static void GenerateXml(string DatasetName, string title, List<List<List<int[]>>> samples, List<int[]> part_indexes)
 		{
 			string StoreFolder = SamplesFolder + DatasetName + "//";
+			Console.WriteLine(StoreFolder);
 			Directory.CreateDirectory(StoreFolder);
 
 			XmlWriterSettings xmlsettings = new XmlWriterSettings();

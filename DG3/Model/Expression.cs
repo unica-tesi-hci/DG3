@@ -17,7 +17,7 @@ namespace GestureStudio
 			return (title);
 		}
 
-		public string GetRule()
+		public string GetExpression()
 		{
 			return (title + " = " + expression);
 		}

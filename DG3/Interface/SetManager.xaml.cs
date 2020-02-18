@@ -42,8 +42,8 @@ namespace GestureStudio
 		PathGeometry pathGeometry;
 		GeometryGroup myGeometryGroup;
 		Ellipse myEllipse;
-		List<string> rule_strings = new List<string>();
-		List<System.Windows.Point> rule_values = new List<System.Windows.Point>();
+		List<string> expression_strings = new List<string>();
+		List<System.Windows.Point> expression_values = new List<System.Windows.Point>();
 		int i = 0;
 
 		public MainWindow()
@@ -119,18 +119,18 @@ namespace GestureStudio
 				current_origin = SnapToGrid(current_origin);
 				System.Windows.Point r = new System.Windows.Point(current_origin.X / GridSize - GridCenter.X, GridCenter.Y - (current_origin.Y / GridSize) );
 				
-				rule_values.Add(r);
+				expression_values.Add(r);
 				if (new_stroke)
 				{
 					if (!first)
 					{
-						this.rule_text_box.Text += " |= ";
+						this.expression_text_box.Text += " |= ";
 					}
 					else
 					{
 						first = false;
 					}
-					rule_strings.Add("P");
+					expression_strings.Add("P");
 					new_stroke = false;
 				}
 				DrawPoint((Canvas)sender, current_origin);
@@ -148,12 +148,12 @@ namespace GestureStudio
 					current_arc.Point = current_origin;
 					if (clockwise)
 					{
-						rule_strings.Add("A_CW");
+						expression_strings.Add("A_CW");
 						current_arc.SweepDirection = SweepDirection.Clockwise;
 					}
 					else
 					{
-						rule_strings.Add("A_ACW");
+						expression_strings.Add("A_ACW");
 						current_arc.SweepDirection = SweepDirection.Counterclockwise;
 					}
 					PathSegmentCollection PathSegment = new PathSegmentCollection();
@@ -166,7 +166,7 @@ namespace GestureStudio
 				}
 				else
 				{
-					rule_strings.Add("L");
+					expression_strings.Add("L");
 					current_line = new LineGeometry();
 					current_line.StartPoint = current_origin;
 					current_line.EndPoint = current_origin;
@@ -178,13 +178,13 @@ namespace GestureStudio
 
 				if (i > 0)
 				{
-					if (rule_strings[i - 1] == "P")
+					if (expression_strings[i - 1] == "P")
 					{
-						this.rule_text_box.Text += rule_strings[i - 1] + "(" + rule_values[i - 1].X + "," + rule_values[i - 1].Y + ")";
+						this.expression_text_box.Text += expression_strings[i - 1] + "(" + expression_values[i - 1].X + "," + expression_values[i - 1].Y + ")";
 					}
 					else
 					{
-						this.rule_text_box.Text += " + " + rule_strings[i - 1] + "(" + (rule_values[i - 1].X - rule_values[i - 2].X) + "," + (rule_values[i - 1].Y - rule_values[i - 2].Y) + ")";
+						this.expression_text_box.Text += " + " + expression_strings[i - 1] + "(" + (expression_values[i - 1].X - expression_values[i - 2].X) + "," + (expression_values[i - 1].Y - expression_values[i - 2].Y) + ")";
 					}
 
 				}
@@ -194,20 +194,19 @@ namespace GestureStudio
 			}
 			if (e.RightButton == MouseButtonState.Pressed)
 			{
-				//rule_strings.RemoveAt(i);
 				paintSurface.Children.Remove(current_path);
 				if (hold_part)
 				{
-					if (rule_strings[i - 1] == "P")
+					if (expression_strings[i - 1] == "P")
 					{
-						this.rule_text_box.Text += rule_strings[i - 1] + "(" + rule_values[i - 1].X + "," + rule_values[i - 1].Y + ")";
+						this.expression_text_box.Text += expression_strings[i - 1] + "(" + expression_values[i - 1].X + "," + expression_values[i - 1].Y + ")";
 					}
 					else
 					{
-						this.rule_text_box.Text += " + " + rule_strings[i - 1] + "(" + (rule_values[i - 1].X - rule_values[i - 2].X) + "," + (rule_values[i - 1].Y - rule_values[i - 2].Y) + ")";
+						this.expression_text_box.Text += " + " + expression_strings[i - 1] + "(" + (expression_values[i - 1].X - expression_values[i - 2].X) + "," + (expression_values[i - 1].Y - expression_values[i - 2].Y) + ")";
 					}
-					rule_strings.Clear();
-					rule_values.Clear();
+					expression_strings.Clear();
+					expression_values.Clear();
 					i = 0;
 				}
 				hold_part = false;
@@ -340,17 +339,17 @@ namespace GestureStudio
 
 		private void btn_add_gesture_Click(object sender, RoutedEventArgs e)
 		{
-			SetExpressions.Add(new Expression(title_text_box.Text,rule_text_box.Text));
-			Rule_ListView.Items.Add(SetExpressions.Last());
+			SetExpressions.Add(new Expression(title_text_box.Text,expression_text_box.Text));
+			ExpressionListView.Items.Add(SetExpressions.Last());
 			ClearInterface();
 		}
 
-		private void Rule_ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void ExpressionListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			Expression r = (Expression)Rule_ListView.SelectedItem;
+			Expression r = (Expression)ExpressionListView.SelectedItem;
 			title_text_box.Text = r.title;
-			rule_text_box.Text = r.expression;
-			DrawRule(paintSurface, rule_text_box.Text);
+			expression_text_box.Text = r.expression;
+			DrawExpression(paintSurface, expression_text_box.Text);
 		}
 
 		private void load_menu_option_Click(object sender, RoutedEventArgs e)
@@ -362,7 +361,7 @@ namespace GestureStudio
 				SetExpressions = ParseJsonExpressions(openFileDialog.FileName);
 				foreach (Expression r in SetExpressions)
 				{
-					Rule_ListView.Items.Add(r);
+					ExpressionListView.Items.Add(r);
 				}
 				string[] filename_split = openFileDialog.FileName.Split('\\');
 				DatasetNameTextBox.Text = filename_split[filename_split.Length-1].Split('.')[0];
@@ -391,8 +390,8 @@ namespace GestureStudio
 					file.WriteLine("{");
 					for (int i = 0; i < SetExpressions.Count; i++)
 					{
-						Expression rule = SetExpressions[i];
-						file.Write("\"" + rule.title + "\": \"" + rule.expression + "\"");
+						Expression exp = SetExpressions[i];
+						file.Write("\"" + exp.title + "\": \"" + exp.expression + "\"");
 						if (i == SetExpressions.Count - 1)
 						{
 							file.Write("\n");
@@ -412,7 +411,7 @@ namespace GestureStudio
 		public void ResetInterface()
 		{
 			SetExpressions.Clear();
-			Rule_ListView.Items.Clear();
+			ExpressionListView.Items.Clear();
 			NewDatasetName(DatasetNameTextBox);
 			GestureDataset = null;
 			ClearInterface();
@@ -423,7 +422,7 @@ namespace GestureStudio
 		{
 			ClearCanvas(paintSurface);
 			NewGestureName(title_text_box);
-			rule_text_box.Text = "";
+			expression_text_box.Text = "";
 			first = true;
 		}
 
@@ -434,15 +433,15 @@ namespace GestureStudio
 			{
 				string json = r.ReadToEnd();
 				JObject items = JsonConvert.DeserializeObject<JObject>(json);
-				foreach (var rule in items)
+				foreach (var exp in items)
 				{
-					extractedExpressions.Add(new Expression(rule.Key, (string) rule.Value));
+					extractedExpressions.Add(new Expression(exp.Key, (string) exp.Value));
 				}
 			}
 			return extractedExpressions;
 		}
 
-		void DrawRule(Canvas c, string code)
+		void DrawExpression(Canvas c, string code)
 		{
 			ClearCanvas(c);
 			string[] strokes = code.Split(new[] { "|=" }, StringSplitOptions.None);
@@ -597,18 +596,18 @@ namespace GestureStudio
 				current_arc.Point = current_origin;
 				if (clockwise)
 				{
-					if (rule_strings.Count > 0)
+					if (expression_strings.Count > 0)
 					{
-						rule_strings[rule_strings.Count - 1] = "A_CW";
+						expression_strings[expression_strings.Count - 1] = "A_CW";
 					}
 
 					current_arc.SweepDirection = SweepDirection.Clockwise;
 				}
 				else
 				{
-					if (rule_strings.Count > 0)
+					if (expression_strings.Count > 0)
 					{
-						rule_strings[rule_strings.Count - 1] = "A_ACW";
+						expression_strings[expression_strings.Count - 1] = "A_ACW";
 					}
 					current_arc.SweepDirection = SweepDirection.Counterclockwise;
 				}
@@ -622,9 +621,9 @@ namespace GestureStudio
 			}
 			else
 			{
-				if (rule_strings.Count > 0)
+				if (expression_strings.Count > 0)
 				{
-					rule_strings[rule_strings.Count - 1] = "L";
+					expression_strings[expression_strings.Count - 1] = "L";
 				}
 				current_line = new LineGeometry();
 				current_line.StartPoint = current_origin;
@@ -675,14 +674,14 @@ namespace GestureStudio
 		{
 			string DefaultString = "Gesture_A";
 			string GestureString = DefaultString;
-			List<string> rule_names = new List<string>();
+			List<string> expression_names = new List<string>();
 
 			foreach (Expression r in SetExpressions)
 			{
-				rule_names.Add(r.title);
+				expression_names.Add(r.title);
 			}
 
-			if (rule_names.Contains(DefaultString))
+			if (expression_names.Contains(DefaultString))
 			{
 				int i = 0;
 
@@ -691,7 +690,7 @@ namespace GestureStudio
 					GestureString = "Gesture_" + (char)(i + 65);
 					i++;
 				}
-				while (rule_names.Contains(GestureString) && i<26); 
+				while (expression_names.Contains(GestureString) && i<26); 
 			}
 			tb.Text = GestureString;
 		}
