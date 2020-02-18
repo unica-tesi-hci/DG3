@@ -1,0 +1,132 @@
+﻿<Window x:Class="GestureStudio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="DG3 Gesture Set Studio" Height="750" Width="900">
+    <Grid Margin="0,0,-8,-3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="125*"/>
+        </Grid.RowDefinitions>
+        <DockPanel HorizontalAlignment="Left" Height="20" LastChildFill="False" VerticalAlignment="Top" Width="992">
+            <Menu DockPanel.Dock="Top" Margin="0,0,-478,0" Height="22">
+                <MenuItem Height="20" Header="_File">
+                    <MenuItem x:Name="load_menu_option" Header="_Load" Click="load_menu_option_Click" />
+                    <MenuItem x:Name="save_menu_option" Header="_Save" Click="save_menu_option_Click"/>
+                </MenuItem>
+                <MenuItem Height="20" Header="_Tests">
+                    <MenuItem x:Name="custom_test_1_select" Header="_$1" Click="custom_test_1_select_Click" />
+                    <MenuItem x:Name="custom_test_2_select" Header="_$N" Click="custom_test_2_select_Click" />
+                    <MenuItem x:Name="custom_test_3_select" Header="_Mixed" Click="custom_test_3_select_Click" />
+                    <MenuItem x:Name="custom_test_4_select" Header="_$1+$N" Click="custom_test_4_select_Click" />
+                    <MenuItem x:Name="custom_test_5_select" Header="_Custom" Click="custom_test_5_select_Click"/>
+                </MenuItem>
+                <MenuItem Height="20" Header="_Help">
+                    <MenuItem x:Name="about_select" Header="_About" Click="about_select_Click" />
+                </MenuItem>
+            </Menu>
+            <StackPanel RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="1.245"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+            </StackPanel>
+        </DockPanel>
+        <Border BorderThickness="2" BorderBrush="Black" Margin="96,38,0,0" Background="LightGray"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="402" Height="402" Grid.RowSpan="2">
+            <Canvas HorizontalAlignment="Left" Width="400" Height="400" Background="Transparent"  Margin="-2" VerticalAlignment="Top"  Name="paintSurface" MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" MouseWheel="paintSurface_MouseWheel" />
+        </Border>
+        <TextBox Name="title_text_box" HorizontalAlignment="Left" Height="20" Margin="107,275,0,0" TextWrapping="Wrap" Text="Gesture_A" VerticalAlignment="Top" Width="391" RenderTransformOrigin="-0.302,10.316" Grid.Row="1"/>
+        <TextBox Name="rule_text_box" HorizontalAlignment="Left" Height="110" Margin="107,313,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="391" Grid.Row="1"/>
+
+        <Button Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" Height="36" Margin="814,475,0,0" VerticalAlignment="Top" Width="36" Click="Button_Click" Grid.Row="1">
+            <Image Source="img/baseline_double_arrow_black_18dp.png" RenderTransformOrigin="1.971,0.559" />
+        </Button>
+
+        <Label Content="Name:" HorizontalAlignment="Left" Height="24" Margin="34,271,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1"/>
+        <Label Content="Rule:" HorizontalAlignment="Left" Height="24" Margin="34,313,0,0" VerticalAlignment="Top" Width="68" Grid.Row="1" RenderTransformOrigin="-0.221,0.583"/>
+        <GroupBox Header="Tools" HorizontalAlignment="Left" Height="402" Margin="34,38,0,0" VerticalAlignment="Top" Width="58" Grid.RowSpan="2">
+            <StackPanel>
+                <Border x:Name="borderACW" BorderThickness="0" BorderBrush="DarkGreen" Width="35" Height="35">
+                    <Image x:Name="imageACW" Source="img/control-A_CW.png" HorizontalAlignment="Center" VerticalAlignment="Top"  Height="35" Width="35" MouseDown="imageACW_MouseDown" />
+                </Border>
+                <Border x:Name="borderL" BorderThickness="1" BorderBrush="DarkGreen"  Width="35" Height="35">
+                    <Image x:Name="imageL" Source="img/control-L.png" HorizontalAlignment="Center" VerticalAlignment="Top"  Height="35" Width="35" MouseDown="imageL_MouseDown" />
+                </Border>
+                <Border x:Name="borderAACW" BorderThickness="0" BorderBrush="DarkGreen"  Width="35" Height="35" Grid.RowSpan="2">
+                    <Image x:Name="imageAACW" Source="img/control-A_ACW.png" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="35" Width="35" MouseDown="imageAACW_MouseDown" />
+                </Border>
+            </StackPanel>
+        </GroupBox>
+
+
+
+        <GroupBox Header="Sample Generation" HorizontalAlignment="Left" Height="167" Margin="545,273,0,0" Grid.Row="1" VerticalAlignment="Top" Width="308" >
+            <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+
+                <Button  Margin="37,2,0,0" Grid.Column="0" Grid.Row="0"  x:Name="btn_generate_samples"  BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Height="36" Width="36"  VerticalAlignment="Top"   Click="btn_generate_samples_Click" >
+                    <Image Source="img/baseline_create_new_folder_black_18dp.png"/>
+                </Button>
+                <Label Grid.Column="0" Grid.Row="1" Margin="0,-5,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Content="Generate Samples" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="30" />
+
+
+
+                <TextBox Margin="45,12,0,0" Grid.Column="1" Grid.Row="0" TextAlignment="Center" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="31" />
+                <Label Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Number of Samples" HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="115" Margin="0,-5,0,0" />
+
+            </Grid>
+        </GroupBox>
+
+
+        <Label Content="Switch to Recognizer" HorizontalAlignment="Left" Height="33" Margin="680,479,0,0" Grid.Row="1" VerticalAlignment="Top" Width="128"/>
+        <GroupBox Header="Dataset" HorizontalAlignment="Left" Height="404" Margin="545,38,0,0" Grid.RowSpan="2" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="308">
+            <StackPanel Margin="10,0,-2,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Name:" HorizontalAlignment="Left" Height="23"  VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,-5,0,0" Width="46" />
+                    <TextBox   x:Name="DatasetNameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="182" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                    <Label Content="Rules:" HorizontalAlignment="Left" Height="32"  VerticalAlignment="Top" Width="46"  Margin="0,5,0,0"/>
+                    <ListView HorizontalContentAlignment="Center"  x:Name="Rule_ListView" HorizontalAlignment="Left" Height="278"  VerticalAlignment="Top" Width="182" SelectionChanged="Rule_ListView_SelectionChanged"/>
+                </StackPanel>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Actions"  HorizontalAlignment="Left" Height="84" Margin="34,428,0,0" Grid.Row="1" VerticalAlignment="Top" Width="464">
+            <StackPanel Orientation="Horizontal"  Margin="0,5,0,0">
+                <StackPanel HorizontalAlignment="Center" >
+                    <Button x:Name="btn_add_gesture" BorderThickness="0" Background="Transparent"  Height="36"  VerticalAlignment="Top" Width="36" Click="btn_add_gesture_Click" Grid.Row="1">
+                        <Image Source="img/baseline_playlist_add_black_18dp.png"/>
+                    </Button>
+                    <Label Content="Add to Dataset"  Height="27"  Grid.Row="1" VerticalAlignment="Top" Width="92" HorizontalContentAlignment="Center" Margin="0,-5,0,0" />
+                </StackPanel>
+                <StackPanel>
+                    <Button x:Name="ClearButton"  Background="Transparent" BorderThickness="0"  Height="36"  VerticalAlignment="Top" Width="36" Click="ClearButton_Click" Grid.Row="1">
+                        <Image Source="img/baseline_layers_clear_black_18dp.png"/>
+                    </Button>
+                    <Label Content="Clear"  Height="27" Grid.Row="1" VerticalAlignment="Top" Width="92" HorizontalContentAlignment="Center" Margin="0,-5,0,0"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </GroupBox>
+
+
+
+
+    </Grid>
+</Window>

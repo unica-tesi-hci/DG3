@@ -1,0 +1,72 @@
+﻿<Window x:Class="GestureStudio.RecognizerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestureStudio"
+        mc:Ignorable="d"
+        Title="DG3 Recognizer" Height="790" Width="1125">
+    <Grid Margin="0,0,-8,-1">
+        <Border BorderThickness="2" BorderBrush="Black" Margin="701,18,0,0" Background="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="402" Height="402">
+            <Canvas HorizontalAlignment="Left" Margin="-2,0,-2,-2" Width="402" Height="400"  VerticalAlignment="Top"  Name="GestureSurface" MouseUp="GestureSurface_MouseUp" MouseDown="GestureSurface_MouseDown" MouseMove="GestureSurface_MouseMove" Background="Transparent">
+            </Canvas>
+        </Border>
+        <GroupBox Header="Active Dataset" BorderThickness="2" BorderBrush="Black" Margin="10,10,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="670" Height="700">
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Margin="-2,-2,-10,-12" HorizontalAlignment="Left" >
+                <Grid x:Name="DatasetGrid" HorizontalAlignment="Left" Width="656" Height="700" Margin="2,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollViewer>
+        </GroupBox>
+
+
+
+        <Label Content="Highlight Strokes" HorizontalAlignment="Left" Height="36" Margin="59,717,0,0" VerticalAlignment="Top" Width="114"/>
+        <Button x:Name="highlight_btn" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Height="36" Margin="18,714,0,0" VerticalAlignment="Top" Width="36" RenderTransformOrigin="0.577,0.268" Click="highlight_btn_Click">
+            <Image Source="img/baseline_multiline_chart_black_18dp.png"/>
+        </Button>
+
+        <GroupBox Header="Recognizer" HorizontalAlignment="Left" Height="201" Margin="702,508,0,0" VerticalAlignment="Top" Width="402">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label   HorizontalAlignment="Left" Height="96"  VerticalAlignment="Top" Width="125">
+                        <AccessText x:Name="PredictedName" TextWrapping="WrapWithOverflow">
+                            _Recognized as:
+                        </AccessText>
+                    </Label>
+                    <Border BorderThickness="1" BorderBrush="Black"  Height="97"   Width="97">
+                        <Image x:Name="PredictedImage" HorizontalAlignment="Left" Height="96" VerticalAlignment="Top" Width="96"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    
+                    <Label Content="Recognition History" HorizontalAlignment="Left" Height="32"  VerticalAlignment="Top" Width="125" />
+                <Button x:Name="history_btn" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="36" Click="history_btn_Click" >
+                    <Image Source="img/baseline_history_black_18dp.png" RenderTransformOrigin="2.103,-0.691"/>
+                </Button>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Options" HorizontalAlignment="Left" Height="79" Margin="701,425,0,0" VerticalAlignment="Top" Width="402">
+            <StackPanel VerticalAlignment="Center">
+                <CheckBox x:Name="check_highlight_parts" Content="Highlight Parts" HorizontalAlignment="Left" Height="18"  VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.549,-2.571" Checked="check_highlight_parts_Checked"/>
+                <CheckBox x:Name="check_ignore_maxstrokes" Content="Allow Excess Strokes" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="142" Checked="check_ignore_maxstrokes_Checked"/>
+            </StackPanel>
+        </GroupBox>
+
+    </Grid>
+</Window>

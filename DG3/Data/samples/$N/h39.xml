@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Gesture AppName="Gestures" AppVer="3.5.0.0" Date="2019/12/19" Milliseconds="200" Name="h39" NumPts="123" Speed="test" Subject="test" TimeOfDay="16:59:57">
+  <Partition>
+    <Spec Index="40" Stroke="0"/>
+    <Spec Index="81" Stroke="1"/>
+    <Spec Index="122" Stroke="2"/>
+  </Partition>
+  <Stroke index="1">
+    <Point T="0" X="600" Y="120"/>
+    <Point T="5" X="601" Y="122"/>
+    <Point T="10" X="601" Y="124"/>
+    <Point T="15" X="601" Y="126"/>
+    <Point T="20" X="601" Y="128"/>
+    <Point T="25" X="601" Y="130"/>
+    <Point T="30" X="602" Y="132"/>
+    <Point T="35" X="602" Y="134"/>
+    <Point T="40" X="602" Y="136"/>
+    <Point T="45" X="602" Y="138"/>
+    <Point T="50" X="603" Y="140"/>
+    <Point T="55" X="603" Y="142"/>
+    <Point T="60" X="603" Y="144"/>
+    <Point T="65" X="603" Y="146"/>
+    <Point T="70" X="603" Y="148"/>
+    <Point T="75" X="604" Y="150"/>
+    <Point T="80" X="604" Y="152"/>
+    <Point T="85" X="604" Y="154"/>
+    <Point T="90" X="604" Y="156"/>
+    <Point T="95" X="604" Y="158"/>
+    <Point T="100" X="605" Y="160"/>
+    <Point T="105" X="605" Y="161"/>
+    <Point T="110" X="605" Y="163"/>
+    <Point T="115" X="605" Y="165"/>
+    <Point T="120" X="605" Y="167"/>
+    <Point T="125" X="606" Y="169"/>
+    <Point T="130" X="606" Y="170"/>
+    <Point T="135" X="606" Y="172"/>
+    <Point T="140" X="606" Y="174"/>
+    <Point T="145" X="606" Y="175"/>
+    <Point T="150" X="606" Y="177"/>
+    <Point T="155" X="607" Y="179"/>
+    <Point T="160" X="607" Y="180"/>
+    <Point T="165" X="607" Y="181"/>
+    <Point T="170" X="607" Y="183"/>
+    <Point T="175" X="607" Y="184"/>
+    <Point T="180" X="607" Y="185"/>
+    <Point T="185" X="607" Y="187"/>
+    <Point T="190" X="608" Y="188"/>
+    <Point T="195" X="608" Y="189"/>
+    <Point T="200" X="608" Y="190"/>
+  </Stroke>
+  <Stroke index="2">
+    <Point T="0" X="600" Y="160"/>
+    <Point T="5" X="600" Y="160"/>
+    <Point T="10" X="601" Y="160"/>
+    <Point T="15" X="602" Y="160"/>
+    <Point T="20" X="604" Y="160"/>
+    <Point T="25" X="605" Y="160"/>
+    <Point T="30" X="607" Y="160"/>
+    <Point T="35" X="609" Y="161"/>
+    <Point T="40" X="611" Y="161"/>
+    <Point T="45" X="613" Y="161"/>
+    <Point T="50" X="616" Y="161"/>
+    <Point T="55" X="618" Y="161"/>
+    <Point T="60" X="621" Y="162"/>
+    <Point T="65" X="623" Y="162"/>
+    <Point T="70" X="626" Y="162"/>
+    <Point T="75" X="629" Y="163"/>
+    <Point T="80" X="632" Y="163"/>
+    <Point T="85" X="634" Y="163"/>
+    <Point T="90" X="637" Y="163"/>
+    <Point T="95" X="640" Y="164"/>
+    <Point T="100" X="643" Y="164"/>
+    <Point T="105" X="646" Y="164"/>
+    <Point T="110" X="648" Y="165"/>
+    <Point T="115" X="651" Y="165"/>
+    <Point T="120" X="654" Y="165"/>
+    <Point T="125" X="657" Y="165"/>
+    <Point T="130" X="659" Y="166"/>
+    <Point T="135" X="662" Y="166"/>
+    <Point T="140" X="664" Y="166"/>
+    <Point T="145" X="666" Y="166"/>
+    <Point T="150" X="668" Y="167"/>
+    <Point T="155" X="670" Y="167"/>
+    <Point T="160" X="672" Y="167"/>
+    <Point T="165" X="674" Y="167"/>
+    <Point T="170" X="676" Y="167"/>
+    <Point T="175" X="678" Y="167"/>
+    <Point T="180" X="679" Y="168"/>
+    <Point T="185" X="681" Y="168"/>
+    <Point T="190" X="682" Y="168"/>
+    <Point T="195" X="684" Y="168"/>
+    <Point T="200" X="685" Y="168"/>
+  </Stroke>
+  <Stroke index="3">
+    <Point T="0" X="680" Y="120"/>
+    <Point T="5" X="680" Y="120"/>
+    <Point T="10" X="680" Y="120"/>
+    <Point T="15" X="680" Y="120"/>
+    <Point T="20" X="680" Y="121"/>
+    <Point T="25" X="680" Y="121"/>
+    <Point T="30" X="680" Y="122"/>
+    <Point T="35" X="680" Y="124"/>
+    <Point T="40" X="680" Y="125"/>
+    <Point T="45" X="680" Y="127"/>
+    <Point T="50" X="680" Y="130"/>
+    <Point T="55" X="680" Y="132"/>
+    <Point T="60" X="681" Y="135"/>
+    <Point T="65" X="681" Y="139"/>
+    <Point T="70" X="681" Y="142"/>
+    <Point T="75" X="681" Y="146"/>
+    <Point T="80" X="682" Y="149"/>
+    <Point T="85" X="682" Y="153"/>
+    <Point T="90" X="682" Y="157"/>
+    <Point T="95" X="682" Y="161"/>
+    <Point T="100" X="683" Y="164"/>
+    <Point T="105" X="683" Y="168"/>
+    <Point T="110" X="683" Y="172"/>
+    <Point T="115" X="683" Y="175"/>
+    <Point T="120" X="683" Y="178"/>
+    <Point T="125" X="684" Y="181"/>
+    <Point T="130" X="684" Y="184"/>
+    <Point T="135" X="684" Y="187"/>
+    <Point T="140" X="684" Y="189"/>
+    <Point T="145" X="684" Y="193"/>
+    <Point T="150" X="685" Y="197"/>
+    <Point T="155" X="685" Y="202"/>
+    <Point T="160" X="685" Y="207"/>
+    <Point T="165" X="686" Y="209"/>
+    <Point T="170" X="686" Y="211"/>
+    <Point T="175" X="686" Y="213"/>
+    <Point T="180" X="686" Y="214"/>
+    <Point T="185" X="686" Y="215"/>
+    <Point T="190" X="686" Y="216"/>
+    <Point T="195" X="686" Y="217"/>
+    <Point T="200" X="686" Y="218"/>
+  </Stroke>
+</Gesture>

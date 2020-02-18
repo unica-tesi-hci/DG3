@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Gesture AppName="Gestures" AppVer="3.5.0.0" Date="2019/12/19" Milliseconds="150" Name="exclamation_point19" NumPts="42" Speed="test" Subject="test" TimeOfDay="16:59:57">
+  <Partition>
+    <Spec Index="30" Stroke="0"/>
+    <Spec Index="41" Stroke="1"/>
+  </Partition>
+  <Stroke index="1">
+    <Point T="0" X="600" Y="120"/>
+    <Point T="5" X="600" Y="121"/>
+    <Point T="10" X="600" Y="121"/>
+    <Point T="15" X="600" Y="122"/>
+    <Point T="20" X="600" Y="124"/>
+    <Point T="25" X="600" Y="125"/>
+    <Point T="30" X="600" Y="126"/>
+    <Point T="35" X="599" Y="128"/>
+    <Point T="40" X="599" Y="130"/>
+    <Point T="45" X="599" Y="131"/>
+    <Point T="50" X="599" Y="133"/>
+    <Point T="55" X="599" Y="135"/>
+    <Point T="60" X="599" Y="137"/>
+    <Point T="65" X="598" Y="139"/>
+    <Point T="70" X="598" Y="141"/>
+    <Point T="75" X="598" Y="142"/>
+    <Point T="80" X="598" Y="144"/>
+    <Point T="85" X="598" Y="146"/>
+    <Point T="90" X="597" Y="148"/>
+    <Point T="95" X="597" Y="150"/>
+    <Point T="100" X="597" Y="152"/>
+    <Point T="105" X="597" Y="153"/>
+    <Point T="110" X="597" Y="155"/>
+    <Point T="115" X="597" Y="157"/>
+    <Point T="120" X="596" Y="158"/>
+    <Point T="125" X="596" Y="160"/>
+    <Point T="130" X="596" Y="164"/>
+    <Point T="135" X="596" Y="167"/>
+    <Point T="140" X="595" Y="170"/>
+    <Point T="145" X="595" Y="172"/>
+    <Point T="150" X="595" Y="174"/>
+  </Stroke>
+  <Stroke index="2">
+    <Point T="0" X="600" Y="180"/>
+    <Point T="5" X="600" Y="181"/>
+    <Point T="10" X="600" Y="183"/>
+    <Point T="15" X="600" Y="186"/>
+    <Point T="20" X="601" Y="189"/>
+    <Point T="25" X="601" Y="192"/>
+    <Point T="30" X="602" Y="196"/>
+    <Point T="35" X="602" Y="198"/>
+    <Point T="40" X="603" Y="201"/>
+    <Point T="45" X="603" Y="202"/>
+    <Point T="50" X="603" Y="204"/>
+  </Stroke>
+</Gesture>
